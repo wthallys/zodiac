@@ -1,7 +1,7 @@
 // App.tsx
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './containers/Home';
-import SignoSelectionPage from './containers/SignoSelection';
+import SignSelectionPage from './containers/SignSelection';
 import ResultPage from './containers/Result/index';
 
 const App = () => {
@@ -9,8 +9,8 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/signo-selection/:firstSigno" element={<SignoSelectionPage />} />
-        <Route path="/result/:firstSigno/:secondSigno" element={<ResultPage />} />
+        <Route path="/sign-selection/:firstSign" element={<SignSelectionPage />} />
+        <Route path="/result/:firstSign/:secondSign" element={<ResultPage />} />
       </Routes>
     </Router>
   );

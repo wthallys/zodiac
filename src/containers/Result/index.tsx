@@ -1,21 +1,49 @@
-import { useParams } from 'react-router-dom'
-import stars from '../../assets/stars.png'
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import stars from '../../assets/stars.png';
 import getResult from '../../api/apiRequest';
 
 function ResultPage() {
-  const { firstSigno, secondSigno } = useParams<{ firstSigno: string; secondSigno: string }>()
-  // const completion = getResult(firstSigno, secondSigno)
-  // console.log(completion);
+  const [result, setResult] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const { firstSign, secondSign } = useParams<{ firstSign: string; secondSign: string }>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getResult(firstSign, secondSign);
+        setResult(data);
+      } catch (error) {
+        setError((error as Error).message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [firstSign, secondSign]);
+
   return (
     <>
-      <div>
-        <img src={stars} className="logo stars" alt="Stars logo" />
-      </div>
-      <div>
-        <h1>Resultado</h1>
-      </div>
+      {loading ? (
+        <p>Carregando...</p>
+      ) : error ? (
+        <p>Error: {error}</p>
+      ) : (
+        <>
+          <div>
+            <img src={stars} className="logo stars" alt="Stars logo" />
+          </div>
+          <div>
+            <h1>Resultado</h1>
+            <p>{result}</p>
+          </div>
+        </>
+      )}
     </>
-  )
+  );
 }
 
-export default ResultPage
+export default ResultPage;

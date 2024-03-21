@@ -1,15 +1,16 @@
 import stars from '../../assets/stars.png'
 import './style.css'
 import Button from '../../components/button'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
-function Home() {
+function SignSelectionPage() {
   const navigate = useNavigate()
+  const { firstSign } = useParams<{ firstSign: string }>()
 
   const signs = ['Áries', 'Touro', 'Gêmeos', 'Câncer', 'Leão', 'Virgem', 'Libra', 'Escorpião', 'Sagitário', 'Capricórnio', 'Aquário', 'Peixes']
 
   const handleButtonClick = (sign: string) => {
-    navigate(`/sign-selection/${sign}`)
+    navigate(`/result/${firstSign}/${sign}`)
   }
 
   return (
@@ -17,7 +18,7 @@ function Home() {
       <div>
         <img src={stars} className="logo stars" alt="Stars logo" />
       </div>
-      <h1>Selecione um signo</h1>
+      <h1>Selecione o outro signo</h1>
       <div>
         {signs.map((sign) => (
           <Button key={sign} name={sign} onClick={() => handleButtonClick(sign)} />
@@ -27,4 +28,4 @@ function Home() {
   )
 }
 
-export default Home
+export default SignSelectionPage
