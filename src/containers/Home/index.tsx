@@ -1,5 +1,5 @@
 import stars from '../../assets/stars.png'
-import './style.css'
+import '../style.css'
 import Button from '../../components/button'
 import { useNavigate } from 'react-router-dom'
 
