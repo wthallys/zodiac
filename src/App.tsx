@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './containers/Home';
 import SignSelectionPage from './containers/SignSelection';
 import ResultPage from './containers/Result/index';
-import { Analytics } from '@vercel/analytics/react';
 
 const App = () => {
   return (
@@ -14,7 +13,6 @@ const App = () => {
           <Route path="/result/:firstSign/:secondSign" element={<ResultPage />} />
         </Routes>
       </Router>
-      <Analytics />
     </>
   );
 };
