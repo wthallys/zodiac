@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import stars from '../../assets/stars.png';
 import getResult from '../../api/apiRequest';
+import Button from '../../components/button';
 
 function ResultPage() {
   const [result, setResult] = useState<string | null>(null);
@@ -9,6 +10,8 @@ function ResultPage() {
   const [error, setError] = useState<string | null>(null);
 
   const { firstSign, secondSign } = useParams<{ firstSign: string; secondSign: string }>();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,6 +42,7 @@ function ResultPage() {
           <div>
             <h1>Resultado</h1>
             <p>{result}</p>
+            <Button name='Voltar' onClick={() => navigate('/')}/>
           </div>
         </>
       )}
