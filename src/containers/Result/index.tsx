@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import stars from '../../assets/stars.png';
 import getResult from '../../api/apiRequest';
-import Button from '../../components/button';
+import Button from '../../components/Button';
 
 function ResultPage() {
   const [result, setResult] = useState<string | null>(null);
