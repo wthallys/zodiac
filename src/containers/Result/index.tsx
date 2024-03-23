@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import stars from '../../assets/stars.png';
 import getResult from '../../api/apiRequest';
 import Button from '../../components/Button';
+import Footer from '../../components/Footer';
 
 function ResultPage() {
   const [result, setResult] = useState<string | null>(null);
@@ -44,6 +45,7 @@ function ResultPage() {
             <p>{result}</p>
             <Button name='Voltar' onClick={() => navigate('/')}/>
           </div>
+          <Footer />
         </>
       )}
     </>

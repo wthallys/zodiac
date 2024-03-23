@@ -2,6 +2,7 @@ import stars from '../../assets/stars.png'
 import '../style.css'
 import Button from '../../components/Button'
 import { useNavigate } from 'react-router-dom'
+import Footer from '../../components/Footer'
 
 function Home() {
   const navigate = useNavigate()
@@ -23,6 +24,7 @@ function Home() {
           <Button key={sign} name={sign} onClick={() => handleButtonClick(sign)} />
         ))}
       </div>
+      <Footer />
     </>
   )
 }

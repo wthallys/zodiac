@@ -2,6 +2,7 @@ import stars from '../../assets/stars.png'
 import '../style.css'
 import Button from '../../components/Button'
 import { useNavigate, useParams } from 'react-router-dom'
+import Footer from '../../components/Footer'
 
 function SignSelectionPage() {
   const navigate = useNavigate()
@@ -24,6 +25,7 @@ function SignSelectionPage() {
           <Button key={sign} name={sign} onClick={() => handleButtonClick(sign)} />
         ))}
       </div>
+      <Footer />
     </>
   )
 }
