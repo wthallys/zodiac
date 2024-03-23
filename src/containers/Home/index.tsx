@@ -1,8 +1,8 @@
 import stars from '../../assets/stars.png'
 import '../style.css'
-import Button from '../../components/Button'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../../components/Footer'
+import Button from '../../components/Button'
 
 function Home() {
   const navigate = useNavigate()
